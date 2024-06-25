@@ -1,0 +1,2 @@
+ai:
+  server_address: "[::]:50051"

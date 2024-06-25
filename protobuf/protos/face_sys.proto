@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+service RouteGuide {
+  rpc GetFacePosition(ImagePair) returns (Rectangle) {}
+}
+
+message ImagePair {
+    bytes personFace = 1;
+    bytes crowdImage = 2;
+}
+
+message Rectangle {
+    int32 code = 1;
+    string mesage = 2;
+    bytes listPosition = 3;
+}
