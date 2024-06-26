@@ -18,7 +18,7 @@ def draw_on(img, faces):
     return dimg
 
 def run():
-    with grpc.insecure_channel("localhost:50051") as channel:
+    with grpc.insecure_channel("172.17.0.1:50051") as channel:
         stub = FaceRecognitionStub(channel)
 
         faceImage = open('/home/uulnat/face_recognizer_system/notebooks/faceImage.png', 'rb').read()
@@ -30,7 +30,7 @@ def run():
         data = ImagePair(personFace=img_face_b64, crowdImage=img_crowd_b64)
         response = stub.GetFacePosition(data)
         list_pos = np.frombuffer(response.listPosition, dtype='float32')
-
+        print(list_pos)
         rimg = draw_on('/home/uulnat/face_recognizer_system/notebooks/crowdImage.jpg', list_pos)
         cv2.imwrite("./the_output.jpg", rimg)
 
