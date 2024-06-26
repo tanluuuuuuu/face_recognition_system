@@ -11,6 +11,6 @@ message ImagePair {
 
 message Rectangle {
     int32 code = 1;
-    string mesage = 2;
+    string message = 2;
     bytes listPosition = 3;
 }

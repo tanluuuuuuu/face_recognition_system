@@ -3,6 +3,7 @@ from utils import open_file_cfg
 import grpc
 from concurrent import futures
 from protobuf.module import face_sys_pb2_grpc
+from protobuf.module.face_sys_pb2 import Rectangle
 
 class RouteGuideServicer(face_sys_pb2_grpc.RouteGuideServicer):
     """Provides methods that implement functionality of route guide server."""
@@ -10,8 +11,9 @@ class RouteGuideServicer(face_sys_pb2_grpc.RouteGuideServicer):
         pass
 
     def GetFacePosition(self, request, context):
+        print("GetFacePosition called!")
         print(request)
-        pass
+        return Rectangle(code=0, message="OK", listPosition=b'')
 
 class AIServer:
     def __init__(self, cfg):
