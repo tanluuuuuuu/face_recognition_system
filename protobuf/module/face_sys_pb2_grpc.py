@@ -30,7 +30,7 @@ if _version_not_supported:
     )
 
 
-class RouteGuideStub(object):
+class FaceRecognitionStub(object):
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -40,13 +40,13 @@ class RouteGuideStub(object):
             channel: A grpc.Channel.
         """
         self.GetFacePosition = channel.unary_unary(
-                '/RouteGuide/GetFacePosition',
+                '/FaceRecognition/GetFacePosition',
                 request_serializer=face__sys__pb2.ImagePair.SerializeToString,
                 response_deserializer=face__sys__pb2.Rectangle.FromString,
                 _registered_method=True)
 
 
-class RouteGuideServicer(object):
+class FaceRecognitionServicer(object):
     """Missing associated documentation comment in .proto file."""
 
     def GetFacePosition(self, request, context):
@@ -56,7 +56,7 @@ class RouteGuideServicer(object):
         raise NotImplementedError('Method not implemented!')
 
 
-def add_RouteGuideServicer_to_server(servicer, server):
+def add_FaceRecognitionServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'GetFacePosition': grpc.unary_unary_rpc_method_handler(
                     servicer.GetFacePosition,
@@ -65,13 +65,13 @@ def add_RouteGuideServicer_to_server(servicer, server):
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'RouteGuide', rpc_method_handlers)
+            'FaceRecognition', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
-    server.add_registered_method_handlers('RouteGuide', rpc_method_handlers)
+    server.add_registered_method_handlers('FaceRecognition', rpc_method_handlers)
 
 
  # This class is part of an EXPERIMENTAL API.
-class RouteGuide(object):
+class FaceRecognition(object):
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -88,7 +88,7 @@ class RouteGuide(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/RouteGuide/GetFacePosition',
+            '/FaceRecognition/GetFacePosition',
             face__sys__pb2.ImagePair.SerializeToString,
             face__sys__pb2.Rectangle.FromString,
             options,

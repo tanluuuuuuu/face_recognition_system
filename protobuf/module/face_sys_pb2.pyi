@@ -8,9 +8,9 @@ class ImagePair(_message.Message):
     __slots__ = ("personFace", "crowdImage")
     PERSONFACE_FIELD_NUMBER: _ClassVar[int]
     CROWDIMAGE_FIELD_NUMBER: _ClassVar[int]
-    personFace: bytes
-    crowdImage: bytes
-    def __init__(self, personFace: _Optional[bytes] = ..., crowdImage: _Optional[bytes] = ...) -> None: ...
+    personFace: str
+    crowdImage: str
+    def __init__(self, personFace: _Optional[str] = ..., crowdImage: _Optional[str] = ...) -> None: ...
 
 class Rectangle(_message.Message):
     __slots__ = ("code", "message", "listPosition")

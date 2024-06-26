@@ -1,4 +1,4 @@
 ai:
   server_address: "[::]:50051"
   det_size: 640
-  sim_threshold: 0.8
+  sim_threshold: 0.4

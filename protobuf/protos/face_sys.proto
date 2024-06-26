@@ -1,12 +1,12 @@
 syntax = "proto3";
 
-service RouteGuide {
+service FaceRecognition {
   rpc GetFacePosition(ImagePair) returns (Rectangle) {}
 }
 
 message ImagePair {
-    bytes personFace = 1;
-    bytes crowdImage = 2;
+    string personFace = 1;
+    string crowdImage = 2;
 }
 
 message Rectangle {
